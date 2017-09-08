@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CalendarModule } from 'angular-calendar';
@@ -13,6 +13,7 @@ import { DemoComponent } from './component';
     RouterModule.forChild([{ path: '', component: DemoComponent }])
   ],
   declarations: [DemoComponent],
-  exports: [DemoComponent]
+  exports: [DemoComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DemoModule {}

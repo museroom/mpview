@@ -16,6 +16,7 @@ export default (env = 'development') => {
     devtool: ifProduction('source-map', 'eval'),
     entry: path.join(__dirname, 'demos', 'entry.ts'),
     output: {
+      path: __dirname + "/dist/",
       filename: ifProduction('[name]-[chunkhash].js', '[name].js')
     },
     module: {

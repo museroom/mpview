@@ -1,3 +1,5 @@
+<script src="module.ts"></script>
+<script src="component.ts"></script>
 <mwl-demo-utils-calendar-header
   [(view)]="view"
   [(viewDate)]="viewDate"
@@ -13,7 +15,15 @@
   </div>
 </ng-template>
 
-<div *ngIf="events$ | async; else loading; let events">
+<ng-template #myloading>
+  <div class="text-center">
+    <i class="fa fa-spin fa-spinner fa-5x"></i>
+    <br>
+    Loading my events...
+  </div>
+</ng-template>
+
+<div *ngIf="events$ | async; else myloading; let events">
   <div [ngSwitch]="view">
     <mwl-calendar-month-view
       *ngSwitchCase="'month'"
