@@ -18,29 +18,7 @@ interface Demo {
   sources?: Source[];
 }
 
-async function getSources(folder: string): Promise<Source[]> {
-  const { sources } = await import('./mpviews/' + folder + '/sources.ts');
-
-  return sources.map(({ filename, contents }) => {
-    const [, extension]: RegExpMatchArray = filename.match(/^.+\.(.+)$/);
-    const languages: { [extension: string]: string } = {
-      ts: 'typescript',
-      html: 'html',
-      css: 'css'
-    };
-    contents = contents
-      .replace(
-        ",\n    RouterModule.forChild([{ path: '', component: DemoComponent }])",
-        ''
-      )
-      .replace("\nimport { RouterModule } from '@angular/router';", '');
-    return {
-      filename,
-      contents,
-      language: languages[extension]
-    };
-  });
-}
+function getSources(folder: string): void {}
 
 const dependencyVersions: any = {
   angular: require('@angular/core/package.json').version,
@@ -102,7 +80,7 @@ export class DemoAppComponent implements OnInit {
         this.activeDemo = this.demos.find(
           demo => `/${demo.path}` === event.url
         );
-        this.activeDemo.sources = await getSources(this.activeDemo.path);
+        this.activeDemo.sources = null; // getSources(this.activeDemo.path);
       });
   }
 
