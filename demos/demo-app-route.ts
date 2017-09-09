@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { PlaylistComponent } from './mpviews/playlist/components';
+import { PlaylistComponent } from './playlist/components';
 import { DemoComponent as DefaultDemoComponent } from './mpviews/kitchen-sink/component';
 
 const routes: Routes = [
