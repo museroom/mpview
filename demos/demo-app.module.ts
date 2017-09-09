@@ -15,6 +15,7 @@ import { NgbTabsetModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { DemoAppComponent } from './demo-app.component';
 import { DemoComponent as DefaultDemoComponent } from './mpviews/kitchen-sink/component';
 import { DemoModule as DefaultDemoModule } from './mpviews/kitchen-sink/module';
+import { CatsComponent } from './cats.components';
 
 export function hljsFactory(): any {
   hljs.registerLanguage('typescript', hljsTypescript);
@@ -24,7 +25,7 @@ export function hljsFactory(): any {
 }
 
 @NgModule({
-  declarations: [DemoAppComponent],
+  declarations: [DemoAppComponent, CatsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,6 +38,13 @@ export function hljsFactory(): any {
     DefaultDemoModule,
     RouterModule.forRoot(
       [
+        {
+          path: 'cats',
+          component: CatsComponent,
+          data: {
+            label: 'Cats'
+          }
+        },
         {
           path: 'kitchen-sink',
           component: DefaultDemoComponent,
