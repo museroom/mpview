@@ -3,8 +3,6 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
-import { Plunker } from 'create-plunker';
-import { sources as demoUtilsSources } from './mpviews/demo-utils/sources';
 
 interface Source {
   filename: string;
