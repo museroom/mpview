@@ -10,7 +10,6 @@ import * as hljs from 'highlight.js/lib/highlight';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import * as hljsCss from 'highlight.js/lib/languages/css';
 import * as hljsXml from 'highlight.js/lib/languages/xml';
-import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
 import { NgbTabsetModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { DemoAppComponent } from './demo-app.component';
 import { DemoComponent as DefaultDemoComponent } from './mpviews/kitchen-sink/component';
@@ -31,10 +30,6 @@ export function hljsFactory(): any {
     BrowserAnimationsModule,
     NgbTabsetModule.forRoot(),
     NgbCollapseModule.forRoot(),
-    HighlightJsModule.forRoot({
-      provide: HIGHLIGHT_JS,
-      useFactory: hljsFactory
-    }),
     DefaultDemoModule,
     RouterModule.forRoot(
       [
