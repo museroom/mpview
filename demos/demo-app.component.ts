@@ -4,7 +4,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import { Plunker } from 'create-plunker';
-import { sources as demoUtilsSources } from './demo-modules/demo-utils/sources';
+import { sources as demoUtilsSources } from './mpviews/demo-utils/sources';
 
 interface Source {
   filename: string;
@@ -19,7 +19,7 @@ interface Demo {
 }
 
 async function getSources(folder: string): Promise<Source[]> {
-  const { sources } = await import('./demo-modules/' + folder + '/sources.ts');
+  const { sources } = await import('./mpviews/' + folder + '/sources.ts');
 
   return sources.map(({ filename, contents }) => {
     const [, extension]: RegExpMatchArray = filename.match(/^.+\.(.+)$/);
