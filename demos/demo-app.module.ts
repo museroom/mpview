@@ -12,19 +12,20 @@ import * as hljsXml from 'highlight.js/lib/languages/xml';
 import { NgbTabsetModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { DemoAppRoutingModule } from './demo-app-route';
 import { DemoAppComponent } from './demo-app.component';
-import { DemoComponent as DefaultDemoComponent } from './mpviews/kitchen-sink/component';
-import { DemoModule as DefaultDemoModule } from './mpviews/kitchen-sink/module';
-import { PlaylistComponent } from './playlist/components';
+import { DemoComponent as DefaultDemoComponent } from './schedule/kitchen-sink/component';
+import { DemoModule as DefaultDemoModule } from './schedule/kitchen-sink/module';
+import { PlaylistModule } from './playlist/module';
 
 @NgModule({
-  declarations: [DemoAppComponent, PlaylistComponent],
+  declarations: [DemoAppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgbTabsetModule.forRoot(),
     NgbCollapseModule.forRoot(),
     DefaultDemoModule,
-    DemoAppRoutingModule
+    DemoAppRoutingModule,
+    PlaylistModule
   ],
   bootstrap: [DemoAppComponent]
 })

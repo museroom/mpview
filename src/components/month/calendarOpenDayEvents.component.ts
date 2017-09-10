@@ -48,11 +48,12 @@ import { CalendarEvent } from 'calendar-utils';
     trigger('collapse', [
       transition('void => *', [
         style({ height: 0, overflow: 'hidden' }),
-        animate('150ms', style({ height: '*' }))
+        // TODO: css padding caused lag
+        animate('0ms', style({ height: '*' }))
       ]),
       transition('* => void', [
         style({ height: '*', overflow: 'hidden' }),
-        animate('150ms', style({ height: 0 }))
+        animate('0ms', style({ height: 0 }))
       ])
     ])
   ]
