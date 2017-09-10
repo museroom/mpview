@@ -5,7 +5,13 @@ import {
   EventEmitter,
   TemplateRef
 } from '@angular/core';
-import { trigger, style, transition, animate } from '@angular/animations';
+import {
+  trigger,
+  style,
+  transition,
+  animate,
+  state
+} from '@angular/animations';
 import { CalendarEvent } from 'calendar-utils';
 
 @Component({
@@ -46,6 +52,25 @@ import { CalendarEvent } from 'calendar-utils';
   `,
   animations: [
     trigger('collapse', [
+      state(
+        'void',
+        style({
+          height: 0
+        })
+      ),
+      state(
+        '*',
+        style({
+          height: 100
+        })
+      ),
+      transition('void  => *', animate('300ms ease-in')),
+      transition('* => void', animate('300ms ease-out'))
+    ])
+  ]
+  /*
+  animations: [
+    trigger('collapse', [
       transition('void => *', [
         style({ height: 0, overflow: 'hidden' }),
         // TODO: css padding caused lag
@@ -57,6 +82,7 @@ import { CalendarEvent } from 'calendar-utils';
       ])
     ])
   ]
+  */
 })
 export class CalendarOpenDayEventsComponent {
   @Input() isOpen: boolean = false;

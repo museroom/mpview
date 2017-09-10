@@ -1,0 +1,24 @@
+<h2>Timeline</h2>
+<p>{{serverUrl}}</p>
+<div class="row col-lg-12">
+  <ul>
+    <li
+      [@buttonState]="state1"
+      (click)="toggle1()"
+      *ngFor="let timeline of timelines">
+      <span>id:{{timeline.id}}</span> name:{{timeline.name}}
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    Msg: {{debug_message}}
+  </div>
+  <div class="col-lg-6">
+    <button
+      class="btn-primary"
+      (click)="update()"
+    >Update
+    </button>
+  </div>
+</div>

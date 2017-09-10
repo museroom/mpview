@@ -8,5 +8,5 @@ import { PlaylistModule } from './module';
   styleUrls: ['./style.css']
 })
 export class PlaylistComponent {
-  title = 'cats';
+  title = 'Playlistes';
 }
